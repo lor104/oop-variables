@@ -40,5 +40,12 @@ class Zombie
     @@plague_level += rand(3)
   end
 
+  def self.some_die_off
+    rand(11).times do |num|
+      @@horde.delete_at(num-1)
+    end
+
+  end
+
 
 end
