@@ -18,7 +18,22 @@ class Zombie
     else
       @strength = strength
     end
+
+    @@horde << self
   end
 
+  def self.all
+    @@horde
+  end
+
+  def self.spawn
+    @@plague_level.times do |num|
+      speed = rand(@@max_speed + 1)
+      strength = rand(@@max_strength + 1)
+      puts "Zom #{num}: Speed: #{speed}, Strength: #{strength}"
+      Zombie.new(speed, strength)
+    end
+    return @@horde
+  end
 
 end
