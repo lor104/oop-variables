@@ -44,8 +44,14 @@ class Zombie
     rand(11).times do |num|
       @@horde.delete_at(num-1)
     end
-
+    @@horde
   end
 
+  def Zombie.new_day
+    self.spawn
+    self.some_die_off
+    self.increase_plague_level
+    return @@horde
+  end
 
 end
