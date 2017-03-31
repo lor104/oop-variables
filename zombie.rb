@@ -27,13 +27,18 @@ class Zombie
   end
 
   def self.spawn
-    @@plague_level.times do |num|
+    @@plague_level.times do # |num|
       speed = rand(@@max_speed + 1)
       strength = rand(@@max_strength + 1)
-      puts "Zom #{num}: Speed: #{speed}, Strength: #{strength}"
+      # puts "Zom #{num}: Speed: #{speed}, Strength: #{strength}"
       Zombie.new(speed, strength)
     end
     return @@horde
   end
+
+  def self.increase_plague_level
+    @@plague_level += rand(3)
+  end
+
 
 end
